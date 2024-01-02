@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* Include padding and border in element's total width and height */
+        }
+
+        body {
+            background-color: rgb(0, 0, 33);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: white;
+            /* Set default text color */
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            /* Use space-between to separate the logo and navigation links */
+            align-items: center;
+            padding: 10px;
+            /* Add some padding for better spacing */
+            height: 50px;
+            background-color: rgb(14, 14, 72);
+        }
+
+        nav .left {
+            font-size: 2em;
+            /* Adjust the font size for the logo */
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 23px;
+            /* Adjust the margin for better spacing */
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        nav ul li a:hover {
+            color: rgb(64, 64, 105);
+            font-size: 1.04rem;
+        }
+
+        .first {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 50px 0;
+        }
+
+        .first>div {
+            width: 30%;
+        }
+
+        .leftSection {
+
+            width: 34px;
+            font-size: 3em;
+        }
+
+        .lefrSection .button {
+            padding: 50px 0;
+        }
+
+        .leftSection .btn {
+            padding: 12px;
+            background-color: #1e2167;
+            color: white;
+            border: 2px solid white;
+            border-radius: 6px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .rightSection img {
+            width: 110%;
+            margin: 50px 0;
+        }
+
+        .purple {
+            color: rgb(101, 62, 219);
+        }
+
+        .text-gray {
+            color: grey;
+        }
+
+        #element {
+            color: rgb(101, 62, 219);
+        }
+
+        .second {
+            max-width: 80vmax;
+            margin: auto;
+            height: 80vh;
+        }
+
+        .second .box {
+            background-color: white;
+            width: 80vw;
+            height: 2px;
+            margin: 56px 0;
+            display: flex;
+        }
+
+        .second .vertical {
+            height: 93px;
+            width: 1px;
+            background-color: white;
+            margin: 0 150px;
+        }
+
+        main hr {
+            border: 0;
+            background-color: rgb(101, 62, 219);
+            height: 1.5px;
+            margin: 40px 84px;
+        }
+
+        /*------About-------*/
+        #about {
+            padding: 80px 0;
+            color: gray;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .col1 {
+            flex-basis: 35%;
+        }
+
+        .col1 img {
+            width: 75%;
+            border-radius: 15px;
+            transition: transform 0.5s;
+        }
+        .col1 img:hover{
+            transform: scale(1.1);
+        }
+        .col2 {
+            flex-basis: 60%;
+        }
+
+        .sub-title {
+            font-size: 50px;
+            font-weight: 600px;
+            color: gray;
+        }
+
+        .tab-titles {
+            display: flex;
+            margin: 20px 0 40px;
+            justify-content: space-evenly;
+        }
+
+        .tab-links {
+            margin-right: 50px;
+            cursor: pointer;
+            font-size: 25px;
+            font-weight: 500px;
+            position: relative;
+        }
+        .tab-links::after{
+            content: ' ';
+            width: 0; 
+            height: 3px;
+            background:rgb(101, 62, 219);
+            position: absolute;
+            bottom: -8px; 
+            transition: 0.5s; 
+        }
+
+        .tab-links.active-link::after{
+            width: 50%;
+        }
+        .tab-cont ul li{
+            list-style: none;
+            margin: 10px 0;
+        }
+        .tab-cont ul li span{
+            color: rgb(104, 110, 162);
+            font-size: 22px;
+        }
+        .tab-cont{
+            display: none;
+        }
+        .tab-cont.active-tab{
+            display: block;
+        }
+        #services{
+            padding: 30px 0;
+        }
+        .service_list{
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+            grid-gap:40px;
+            margin-top: 50px;
+        }
+        .service_list div{
+            background: rgb(41, 15, 107);
+            padding: 40px;
+            font-size: 16px;
+            font-weight: 300;
+            border-radius: 10px;
+            transition: background 0.5s, transform 0.5s;
+        }
+        .service_list div i{
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+        .service_list div h2{
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        .service_list div a{
+           text-decoration: none;
+           color: aliceblue;
+           font-size: 15px;
+           display: inline-block;
+            margin-top: 20px;
+        }
+        .service_list div:hover{
+            background: rgb(58, 58, 176);
+            transform: translate(-10px);
+        }
+        #contact{
+            padding: 50px 0;
+        }
+        .contact-left{
+            flex-basis: 35%;
+        }
+        .contact-left p{
+            margin-top: 30px;
+        }
+        .contact-left p i{
+           margin-right: 15px;
+           font-size: 25px;
+        }
+        .contact-right{
+            flex-basis: 60%;
+        }
+        .social-icons a{
+            margin-top: 15px;
+            text-decoration: none;
+            font-size: 30px;
+            margin-right: 15px;
+            color: rgb(149, 148, 158);
+            display: inline-block;
+            transition: transform 0.5s;
+        }
+        .social-icons a:hover{
+            color:rgb(135, 35, 35) ;
+            transform: translateY(-5px);
+        }
+        .btn2{
+            text-decoration: none;
+            display: inline-block;
+            background: rgb(62, 75, 164);
+            width: fit-content;
+            border: 2px solid black;
+            padding: 14px 50px;
+            border-radius: 6px;
+            font-weight: 500;
+            color: white;
+        }
+        .btn2:hover{
+            color: white;
+        }
+        .contact-right form{
+            width: 100%;
+        }
+        form input,form textarea{
+            width: 100%;
+            border: 0;
+            outline: none;
+            background: #302f87;
+            padding: 15px;
+            margin: 15px 0;
+            color:#dedee8;
+            font-size: 14px;
+            border-radius: 6px;
+        }
+        form .btn2{
+            padding: 14px 60px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .copyright{
+            width: 100%;
+            text-align: center;
+            padding: 18px 0;
+            background: rgb(20, 3, 60);
+            font-weight: 200;
+            margin-top: 20px;
+        }
+
+        /*   footer {
+            background-color: #12122b;
+        }
+
+       .footer-one {
+            display: flex;
+            padding: 23px 122px;
+            font-size: 20px;
+            justify-content: space-evenly;
+        }
+
+        .footer-one ul {
+            list-style: none;
+        }
+
+        .footer-rights {
+            text-align: center;
+            color: gray;
+            padding: 12px 0;
+        }
+        @media screen and(max-width:2000px){
+            body{
+                background-color: rgb(97, 27, 27);
+            }
+            .first{
+                flex-direction: column-reverse;
+            }
+        }*/
+    </style>
+<script src="https://kit.fontawesome.com/3cdf67e089.js" crossorigin="anonymous"></script>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">Simran's Portfolio</div>
+            <div class="right">
+                <ul>
+                    <li> <a href="home.html">Home</a></li>
+                    <li> <a href="#">About</a></li>
+                    <li> <a href="#">My Projects</a></li>
+                    <li> <a href="#">Contact Me</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="first">
+            <div class="leftSection">
+                Hi,My name is <span class="purple">Simran</span>
+                <div>and I'm a passinate.</div>
+                <span id="element"></span>
+                <div class="button">
+                    <a href="CV.pdf" download class=" btn btn2">Download CV</a>
+                    <button class="btn">Visit GitHub</button>
+                </div>
+            </div>
+            <div class="rightSection"><img src="bg5.png" alt="My image"></div>
+        </section>
+        <hr>
+        <section class="second">
+            <span class="text-gray">
+                <h2>What should I done</h2>
+            </span>
+            <div class="about">
+                <div class="container">
+                    <div class="row">
+                        <div class="col1">
+                            <img src="simran.jpg" alt="MyImage">
+                        </div>
+                        <div class="col2">
+                            <h2 class="sub-title">About Me</h2>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto consectetur cupiditate
+                                voluptatum nihil commodi autem rerum harum dolores, repellat quod porro inventore
+                                laboriosam incidunt unde qui maxime? Totam, nostrum provident.</p>
+                            <div class="tab-titles">
+                                <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                                <p class="tab-links" onclick="opentab('education')">Education</p>
+                            </div>
+                            <div class="tab-cont active-tab" id="skills">
+                                <ul>
+                                    <li><span>HTML</span><br>For Static web pages</li>
+                                    <li><span>CSS</span><br>Designing a web pages</li>
+                                    <li><span>PHP</span><br>Handling back-end</li>
+                                    <li><span>Javascript</span><br>Handles event in HTML pages<li>
+                                </ul>
+                            </div>
+                            <div class="tab-cont " id="education">
+                                <ul>
+                                    <li><span>2023-current</span><br>Doing course on Coursera-The Full Stack</li>
+                                    <li><span>2023</span><br>The Bits and Bytes of Computer Netwrking Course</li>
+                                    <li><span>2021-2022</span><br>Completed a Python Learning</li>
+                                    <li><span>2022</span><br>Database<li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!---------services-->
+            <div id="services">
+                <div class="container">  
+                    <h2 class="sub-title">Experience</h2>
+                <div class="service_list">
+                    <div>
+                        <i class="fa-solid fa-code"></i>
+                        <h2>Web Design</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus odio pariatur beatae amet
+                             nostrum, dolores, ad saepe ipsa sit iusto numquam doloremque sequi? Commodi quisquam soluta tempore amet ducimus unde?</p>
+                             <a href="#">Learn more</a>
+                    </div>
+                    <div>
+                        <i class="fa-brands fa-app-store"></i>
+                        <h2>Web Developer</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat repellendus molestiae iusto, amet ut, quos eius consequuntur pariatur eum quia unde, eveniet debitis? Debitis ipsam autem laboriosam veritatis explicabo iure.</p>
+                        <a href="#">Learn More</a>
+                    </div>
+                    <div>
+                        <i class="fa-brands fa-html5"></i>
+                        <h2>HTML</h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias, error quaerat? Repudiandae veniam, perferendis sequi vero dicta, necessitatibus a harum ad, laudantium hic ab est ut sit itaque cum quidem.</p>
+                        <a href="#">Learn more</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+           <!-----Contact me-->
+<!-- ... other HTML code ... -->
+
+<!-- Contact me-->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">               
+                 <h1 class="sub-title">Contact Me</h1>
+                <p>&#128231 simrangautam2514@gmail.com</p>
+                <p>&#9742  9914408428</p>
+                <div class="social-icons">
+                    <a href="https://facebook.com"><i class="fa-brands fa-square-facebook"></i></a>
+                    <a href="https://instagram.com"><i class="fa-brands fa-square-instagram"></i></a>
+                    <a href="https://linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+              
+            </div>
+            <div class="contact-right">
+ <!-- Wrap your form elements in a form tag -->
+                <form>
+                    <!-- Fix typo in "required" -->
+                    Name: <input type="text" name="name" id="name" placeholder="Your Name"required><br>
+                    Email: <input type="email" name="email" id="email" placeholder="Your Email" required><br>
+                    <textarea name="message" id="message" cols="30" rows="10" placeholder="Write Message here"></textarea>
+                    <button type="submit" class="btn2">Submit</button>
+                    <button type="reset" class="btn2">Refill</button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright &#169 Simran. Made with &#9829 .</p>
+        </div>
+    </div>
+</div>
+
+<!-- ... other HTML code ... -->
+
+        </section>
+    </main>
+        <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+        <!-- Setup and start animation! -->
+        <script>
+            var typed = new Typed('#element', {
+                strings: ['<b><i>Web Developer</i></b>', '<b><i>Front-End Developer</i></b>', '<b><i>Web desinger</i></b>'],
+                typeSpeed: 50,
+            });
+            
+
+            var tablinks=document.getElementsByClassName("tab-links");
+            var tabconts=document.getElementsByClassName("tab-cont");
+            function opentab(tab){
+                for(tablink of tablinks){
+                    tablink.classList.remove("active-link");
+                }
+                for(tabcont of tabconts){
+                    tabcont.classList.remove("active-tab");
+                }
+                event.currentTarget.classList.add("active-link");
+                document.getElementById(tab).classList.add("active-tab");
+            }
+        </script>
+</body>
+
+</html>
